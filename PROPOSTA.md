@@ -4,7 +4,6 @@ Aplicação Web Para Consulta de dias de coleta de Lixo e Acompanhamento.
 
 ## :technologist: Membros da equipe
 
-Matrícula, nome e curso dos participantes.
 571611 -- Ronaldo Araújo -- Redes de Computadores
 571610 -- Nicollas Menezes -- Redes de Computadores
 570351 -- Maria Eduarda -- Engenharia de Software
@@ -51,7 +50,6 @@ Secretaria de Serviços Publicos.
 
 ## :spiral_calendar: Entidades ou tabelas do sistema
 
-Liste as principais entidades do sistema.
 
 **Região:** representa o bairro/região atendido pelo servico.
 **Coleta:** Representa uma coleta específica do bairro/região.
