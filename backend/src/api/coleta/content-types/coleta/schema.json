@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "coletas",
+  "info": {
+    "singularName": "coleta",
+    "pluralName": "coletas",
+    "displayName": "Coleta",
+    "description": "Uma coleta específica realizada em uma região"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "regiao": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::regiao.regiao",
+      "inversedBy": "coletas"
+    },
+    "data": { "type": "date", "required": true },
+    "status": {
+      "type": "enumeration",
+      "enum": ["agendada", "em_andamento", "concluida", "cancelada"],
+      "default": "agendada",
+      "required": true
+    },
+    "observacao": { "type": "text" }
+  }
+}

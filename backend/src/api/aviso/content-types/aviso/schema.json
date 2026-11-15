@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "avisos",
+  "info": {
+    "singularName": "aviso",
+    "pluralName": "avisos",
+    "displayName": "Aviso",
+    "description": "Aviso geral ou de uma região específica"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "titulo": { "type": "string", "required": true },
+    "mensagem": { "type": "text", "required": true },
+    "geral": { "type": "boolean", "default": false },
+    "regiao": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::regiao.regiao",
+      "inversedBy": "avisos"
+    }
+  }
+}

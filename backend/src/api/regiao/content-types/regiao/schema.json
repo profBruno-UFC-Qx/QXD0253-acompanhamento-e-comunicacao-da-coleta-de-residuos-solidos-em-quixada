@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "regioes",
+  "info": {
+    "singularName": "regiao",
+    "pluralName": "regioes",
+    "displayName": "Região",
+    "description": "Bairro ou região atendida pelo serviço de coleta"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "nome": { "type": "string", "required": true, "unique": true },
+    "descricao": { "type": "text" },
+    "cronogramas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::cronograma.cronograma",
+      "mappedBy": "regiao"
+    },
+    "coletas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::coleta.coleta",
+      "mappedBy": "regiao"
+    },
+    "avisos": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::aviso.aviso",
+      "mappedBy": "regiao"
+    }
+  }
+}

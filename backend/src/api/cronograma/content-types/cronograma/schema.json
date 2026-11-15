@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cronogramas",
+  "info": {
+    "singularName": "cronograma",
+    "pluralName": "cronogramas",
+    "displayName": "Cronograma",
+    "description": "Dias e horários em que a coleta normalmente acontece"
+  },
+  "options": { "draftAndPublish": false },
+  "attributes": {
+    "regiao": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::regiao.regiao",
+      "inversedBy": "cronogramas"
+    },
+    "dia_semana": {
+      "type": "enumeration",
+      "enum": ["domingo", "segunda", "terca", "quarta", "quinta", "sexta", "sabado"],
+      "required": true
+    },
+    "horario_inicio": { "type": "time", "required": true },
+    "horario_fim": { "type": "time" },
+    "ativo": { "type": "boolean", "default": true }
+  }
+}
