@@ -488,12 +488,14 @@ export interface ApiColetaColeta extends Struct.CollectionTypeSchema {
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     data: Schema.Attribute.Date & Schema.Attribute.Required;
+    latitude: Schema.Attribute.Decimal;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::coleta.coleta'
     > &
       Schema.Attribute.Private;
+    longitude: Schema.Attribute.Decimal;
     observacao: Schema.Attribute.Text;
     publishedAt: Schema.Attribute.DateTime;
     regiao: Schema.Attribute.Relation<'manyToOne', 'api::regiao.regiao'>;

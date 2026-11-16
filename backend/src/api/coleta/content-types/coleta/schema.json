@@ -22,6 +22,8 @@
       "default": "agendada",
       "required": true
     },
-    "observacao": { "type": "text" }
+    "observacao": { "type": "text" },
+    "latitude": { "type": "decimal" },
+    "longitude": { "type": "decimal" }
   }
 }
