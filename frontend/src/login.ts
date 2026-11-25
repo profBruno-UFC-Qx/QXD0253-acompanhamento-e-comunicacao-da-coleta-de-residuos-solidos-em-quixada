@@ -1,27 +1,28 @@
+import {chamarAPI} from './api.js';
+
+
 const forms =  document.getElementById("login-forms") as HTMLFormElement;
 const username = document.getElementById("username") as HTMLInputElement;
 const password = document.getElementById("password") as HTMLInputElement;
-
-const Myheaders = new Headers();
-Myheaders.append('Content-Type', 'application/json');
-
-forms.addEventListener("submit" , async (event) =>{ 
-    event.preventDefault(); // não deixa a página recarregar 
-    const response =  await fetch ( 'http://localhost:1337/api/auth/local', {
-        method: 'POST',
-        headers: Myheaders, 
-        body: JSON.stringify({
-            identifier: username.value,
-            password: password.value
-        })
-        
-    })
-    const dados = await response.json();
-    console.log(response.ok, dados);
+const mensagem = document.getElementById("mensagem") as HTMLParagraphElement;
 
 
-}
 
+forms.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const usernameValue = username.value;
+    const passwordValue = password.value;
 
-);
+    try{
+        const response = await chamarAPI('/auth/local', 'POST',{ identifier: usernameValue, password: passwordValue });
+        localStorage.setItem('jwt', response.jwt);
+        mensagem.textContent = "Login realizado com sucesso!";
 
+    } catch (error) {
+        const mensagemErro = document.querySelector("#mensagem") as HTMLParagraphElement;
+        if (error instanceof Error){
+            mensagemErro.textContent = `Erro: ${error.message}`;
+        }
+    }
+
+});
