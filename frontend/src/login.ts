@@ -11,10 +11,12 @@ forms.addEventListener("submit", async (event) => {
     event.preventDefault();
     const usernameValue = username.value;
     const passwordValue = password.value;
+    
 
     try {
         const usuario = await login(usernameValue, passwordValue);
         if (usuario.role.name === 'Administrador') {
+
             window.location.href = 'admin.html';
         } else if (usuario.role.name === 'Coletor') {
             window.location.href = 'coletor.html';
@@ -29,6 +31,9 @@ forms.addEventListener("submit", async (event) => {
         } else {
             mensagem.textContent = "Ocorreu um erro desconhecido.";
         }
+        setTimeout(() => {
+            mensagem.textContent = "";
+        }, 6000);
 
 }
 
