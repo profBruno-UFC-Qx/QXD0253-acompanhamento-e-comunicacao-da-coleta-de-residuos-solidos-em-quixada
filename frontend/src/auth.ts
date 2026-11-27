@@ -52,27 +52,20 @@ export function Tempapel(papel: string): boolean {
     return false;
 }
 
-export function exigirPapel(papel : string | string []): void{
-    const usuarioLogado = usuario();
-
- if (!logado() || !Tempapel(papel as string)) {
-     window.location.href = 'login.html';
-        
-    }else if (logado() && Tempapel(papel as string)){
-         if (papel === 'Administrador' && usuarioLogado.role?.name === 'Administrador') {
-            return;
-        } else if (papel === 'Coletor' && usuarioLogado.role?.name === 'Coletor'){
-            return;
-        }else if (papel === 'UsuarioLogado' && usuarioLogado.role?.name === 'UsuarioLogado'){
-            return;
-        }else{
-            window.location.href = 'login.html';
-        }
-
-        
-  }
-
+export function exigirPapel(papel : string): void{
+   
+    if (!logado() || !Tempapel(papel)) {
+        window.location.href = 'login.html';
+    }
+  
 
 }
 
-
+export function exigirLogin(): boolean {
+    if (!logado()) {
+        window.location.href = 'login.html';
+        return false;
+    } else {
+        return true;
+    }
+}
