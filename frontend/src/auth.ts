@@ -2,9 +2,6 @@
 import {chamarAPI} from './api.js';
 
 
-
-
-
 export async  function login ( usernameValue: string , passwordValue: string){
 
     const response = await chamarAPI('/auth/local', 'POST',{ identifier: usernameValue, password: passwordValue });
