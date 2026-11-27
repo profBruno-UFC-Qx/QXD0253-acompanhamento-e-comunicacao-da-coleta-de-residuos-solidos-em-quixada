@@ -9,6 +9,8 @@ const mensagem = document.getElementById("mensagem") as HTMLParagraphElement;
 
 
 forms.addEventListener("submit", async (event) => {
+    mensagem.textContent = "";
+    localStorage.removeItem('jwt');
     event.preventDefault();
     const usernameValue = username.value;
     const passwordValue = password.value;
@@ -16,13 +18,25 @@ forms.addEventListener("submit", async (event) => {
     try{
         const response = await chamarAPI('/auth/local', 'POST',{ identifier: usernameValue, password: passwordValue });
         localStorage.setItem('jwt', response.jwt);
+       
+        const usuario = await chamarAPI('/users/me?populate=role');
+        localStorage.setItem('usuario', JSON.stringify(usuario));
+
         mensagem.textContent = "Login realizado com sucesso!";
 
+        if (usuario.role.name === 'Administrador') {
+            window.location.href = 'admin.html';
+        } else if (usuario.role.name === 'Coletor') {
+            window.location.href = 'coletor.html';
+        } else {
+            window.location.href = 'index.html';
+        }
+
     } catch (error) {
-        const mensagemErro = document.querySelector("#mensagem") as HTMLParagraphElement;
         if (error instanceof Error){
-            mensagemErro.textContent = `Erro: ${error.message}`;
+            mensagem.textContent = `Erro: ${error.message}`;
+        } else {
+            mensagem.textContent = "Ocorreu um erro desconhecido.";
         }
     }
-
 });
