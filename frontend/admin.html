@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrador - Coleta de Lixo de Quixadá</title>
+  <link rel="stylesheet" href="css/avisos.css">
+</head>
+<body>
+  <header>
+    <h1>Painel do administrador</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <button id="btn-sair" class="btn btn-sec" type="button">Sair</button>
+    </nav>
+  </header>
+  <main>
+    <p id="status" class="status info" role="alert" hidden></p>
+
+    <div id="conteudo" hidden>
+      <section class="painel">
+        <h2>Novo aviso</h2>
+        <form id="form-aviso">
+          <label for="titulo">Título</label>
+          <input type="text" id="titulo" maxlength="120" required>
+
+          <label for="mensagem">Mensagem</label>
+          <textarea id="mensagem" required></textarea>
+
+          <label class="check"><input type="checkbox" id="geral"> Aviso geral (todas as regiões)</label>
+
+          <label for="regiao">Região</label>
+          <select id="regiao">
+            <option value="">Selecione a região</option>
+          </select>
+
+          <p><button id="btn-salvar" class="btn" type="submit">Publicar aviso</button></p>
+        </form>
+      </section>
+
+      <h2>Avisos publicados</h2>
+      <ul id="lista-avisos"></ul>
+    </div>
+  </main>
+  <script type="module" src="dist/admin.js"></script>
+</body>
+</html>

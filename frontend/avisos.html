@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avisos - Coleta de Lixo de Quixadá</title>
+  <link rel="stylesheet" href="css/avisos.css">
+</head>
+<body>
+  <header>
+    <h1>Avisos da coleta</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <button id="btn-sair" class="btn btn-sec" type="button">Sair</button>
+    </nav>
+  </header>
+  <main>
+    <label for="regiao">Sua região</label>
+    <select id="regiao"></select>
+
+    <p id="status" class="status info" role="alert" hidden></p>
+    <ul id="lista-avisos"></ul>
+  </main>
+  <script type="module" src="dist/avisos.js"></script>
+</body>
+</html>
