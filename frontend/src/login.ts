@@ -15,7 +15,7 @@ forms.addEventListener("submit", async (event) => {
 
     try {
         const usuario = await login(usernameValue, passwordValue);
-        if (usuario.role.name === 'Administrador') {
+        if (usuario.role.name === 'Administrador ') {
 
             window.location.href = 'admin.html';
         } else if (usuario.role.name === 'Coletor') {
