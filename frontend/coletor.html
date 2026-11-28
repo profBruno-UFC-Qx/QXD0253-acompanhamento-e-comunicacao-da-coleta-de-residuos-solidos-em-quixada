@@ -3,9 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.9/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-yEPZ7jP9S0QKiUQ0m3jjsO4ProIW7wvR9gXkI7JOGa2XVsw53Yke2bsdkBbjmmiX" crossorigin="anonymous">
+
     <title>Coletor</title>
 </head>
 <body>
     
+    <main class="container mt-5">
+     <h2 class="text-center mb-4" id="coletor-title">
+        Area do Coletor
+     </h2>
+     <nav>
+        <a href="login.html">Voltar</a>
+        <h3 class="text-center mb-4">
+            Bem-vindo, <span id="username"></span>!
+        </h3>
+     </nav>
+ 
+
+    <div>
+        <label for = "bairros" >Bairros:</label>
+        <select id="bairros" name="bairros">
+         
+            <option value="bairro1">Bairro 1</option>
+            <option value="bairro2">Bairro 2</option>
+            <option value="bairro3">Bairro 3</option>
+
+        </select>
+
+        <button id="iniciar-coleta" type="button">
+            Iniciar Coleta
+        </button>
+    </div> 
+
+    </main>
+    <script type="module" src="dist/coletor.js"></script>
 </body>
 </html>

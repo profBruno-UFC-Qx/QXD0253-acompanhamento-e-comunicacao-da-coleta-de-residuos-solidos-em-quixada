@@ -3,7 +3,7 @@ import {chamarAPI} from './api.js';
 
 
 export async  function login ( usernameValue: string , passwordValue: string){
-
+    sair();
     const response = await chamarAPI('/auth/local', 'POST',{ identifier: usernameValue, password: passwordValue });
     localStorage.setItem('jwt', response.jwt);
     const usuario = await chamarAPI('/users/me?populate=role');
@@ -41,7 +41,7 @@ export function usuario(): any | null {
   return null;
 }
 
-export function Tempapel(papel: string): boolean {
+export function temPapel(papel: string): boolean {
     const usuarioLogado = usuario();
     if (usuarioLogado && usuarioLogado?.role?.name === papel) {
         return true;
@@ -49,11 +49,13 @@ export function Tempapel(papel: string): boolean {
     return false;
 }
 
-export function exigirPapel(papel : string): void{
+export function exigirPapel(papel : string): boolean {
    
-    if (!logado() || !Tempapel(papel)) {
+    if (!logado() || !temPapel(papel)) {
         window.location.href = 'login.html';
+        return false;
     }
+    return true;
   
 
 }
