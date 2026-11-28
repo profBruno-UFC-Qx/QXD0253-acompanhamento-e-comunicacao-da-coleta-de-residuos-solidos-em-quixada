@@ -1,5 +1,5 @@
 // tela do administrador (criar e apagar avisos)
-import { exigirPapel, logado, Tempapel, sair } from "./auth.js";
+import { exigirPapel, logado, temPapel, sair } from "./auth.js";
 import {
   listarAvisos, listarRegioes, criarAviso, apagarAviso, mensagemDeErro, Aviso,
 } from "./avisos-service.js";
@@ -125,7 +125,7 @@ btnSair.addEventListener("click", () => {
 async function iniciar(): Promise<void> {
   // só Administrador entra; senão exigirPapel() manda para login.html
   exigirPapel(PAPEL_ADMIN);
-  if (!logado() || !Tempapel(PAPEL_ADMIN)) return;
+  if (!logado() || !temPapel(PAPEL_ADMIN)) return;
 
   conteudo.hidden = false;
   try {
